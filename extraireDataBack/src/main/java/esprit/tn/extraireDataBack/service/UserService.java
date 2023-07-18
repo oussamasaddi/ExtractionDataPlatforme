@@ -86,4 +86,6 @@ public class UserService {
 	public String getEncoderPassword(String password) {
 		return passwordEncoder.encode(password);
 	}
+
+	public User getUserByuserName(String userName){ return  userRepository.findById(userName).get();}
 }

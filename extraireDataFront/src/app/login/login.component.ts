@@ -5,7 +5,6 @@ import { response } from 'express';
 import { AuthServiceService } from '../service/auth-service.service';
 import { UserAuthService } from '../service/user-auth.service';
 import { UserService } from '../service/user.service';
-import { User } from '../model/user';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +13,10 @@ import { User } from '../model/user';
 })
 export class LoginComponent implements OnInit {
 
-  email: string = "";
+  email: string;
   password: string;
   message : string ; 
-  
-  auth : {"userName":string , "userPassword" :string};
-  
+  auth : {"userName" : "admin123" , "userPassword" : "admin@pass"} ;
    
   constructor(private authService : AuthServiceService , private router : Router , 
     private userService : UserService,
@@ -53,23 +50,28 @@ export class LoginComponent implements OnInit {
     
     
   }
-  login(){
-    
-    this.userService.login(this.auth).subscribe(
+  login(loginForm:NgForm){
+    this.userService.login(loginForm.value).subscribe(
       (response:any)=>{
         console.log(response.jwtToken);
-        this.userAuthService.setRoles(response.user.role);
+       
         this.userAuthService.setToken(response.jwtToken);
-        //test set and get current user
-        this.userAuthService.setCurrentUser(response.user);
+        this.userService.getUserByuserName(loginForm.value.userName).subscribe((us : any) => {
+           this.userAuthService.setRoles(us.role);
+          //test set and get current user
+        this.userAuthService.setCurrentUser(us);
+        
         //end test
-        const role = response.user.role[0].roleName;
+        const role = us.role[0].roleName;
+        
         if(role=="Admin"){
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/home']);
         }else{
           this.router.navigate(['/home']);
 
         }
+        })
+        
       },
       (error) =>{
         console.log(error);

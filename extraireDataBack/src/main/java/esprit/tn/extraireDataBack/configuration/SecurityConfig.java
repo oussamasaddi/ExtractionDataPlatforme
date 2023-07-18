@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
         //.fullyAuthenticated().and().httpBasic();
     	
     	http.csrf().disable()
-    		.authorizeRequests().antMatchers("/authenticate" , "/registerNewUser").permitAll()
+    		.authorizeRequests().antMatchers("/authenticate" , "/registerNewUser" ).permitAll()
     		.antMatchers(HttpHeaders.ALLOW).permitAll()
     		.anyRequest().authenticated()
     		.and()

@@ -9,12 +9,17 @@ import { User } from '../model/user';
   providedIn: 'root'
 })
 export class UserService {
-  PATH_OF_API = "http://localhost:8898";
+  PATH_OF_API = "http://localhost:8899/extrairedata";
   requetHeader = new HttpHeaders(
     {"No-Auth":"True"}
   )
+  TOKEN = this.userAuthService.getToken();
 
-  constructor(private httpClient:HttpClient , private userAuthService : UserAuthService) { }
+    headers = new HttpHeaders(
+    {"Authorization": `Bearer ${this.TOKEN}`}
+    )
+
+  constructor(private httpClient:HttpClient , private userAuthService : UserAuthService ) { }
 
   public login(loginData : any){
     return this.httpClient.post(this.PATH_OF_API+"/authenticate" , loginData , {headers : this.requetHeader})
@@ -25,6 +30,13 @@ export class UserService {
   //Creation Client 
   createClient(client: User): Observable<Object>{
     return this.httpClient.post(`${this.PATH_OF_API}/registerNewUser`, client);
+  }
+
+
+  getUserByuserName(userName : string ) : Observable<User>{
+   
+    return  this.httpClient.get<User>(`${this.PATH_OF_API}/getUserByuserName/${userName}`, {headers :this.headers} );
+
   }
 
   
@@ -57,11 +69,11 @@ export class UserService {
     return this.httpClient.put(`${this.PATH_OF_API}/userNewPassword/${id}` , user);
   }
 
-  //Get User by id 
+ /* //Get User by id 
   getUserByUserName(userName : string): Observable<User>{
     
     return this.httpClient.get<User>(`${this.PATH_OF_API}/user/${userName}`);
-  }
+  }*/
 
   //get match message 
   public matchPass(rawPass : string ,encodedPass : string ){

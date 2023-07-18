@@ -50,11 +50,14 @@
                 <div class="formbg-inner padding-horizontal--48">
                     <span class="padding-bottom--15">{{message}}</span>
                     <span class="padding-bottom--15">Sign in to your account</span>
-                    <form id="stripe-login"  (ngSubmit)="login()">
+                    <form id="stripe-login" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
                         <div class="field padding-bottom--24">
                             <label for="email">Email</label>
-                            <input ngModel ="auth.UserName"  type="text" placeholder="User Name" name="UserName" required />
-
+                            <input type="email" 
+                            ngModel
+                            name="userName"
+                            id="userName"
+                            >
                         </div>
                         <div class="field padding-bottom--24">
                             <div class="grid--50-50">
@@ -64,7 +67,7 @@
                                 </div>
                             </div>
                             <input type="password" 
-                            ngModel = "auth.userPassword"
+                            ngModel
                             name="userPassword"
                             id="userPassword"
                             >

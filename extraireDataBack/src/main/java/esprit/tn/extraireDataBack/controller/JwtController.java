@@ -26,6 +26,7 @@ public class JwtController {
 		
 	}
 */
+
 	@PostMapping({"/authenticate"})
 	public HashMap<String , String> createJwtToken(@RequestBody JwtRequest jwtRequest) throws Exception {
 		HashMap<String , String> jwt = new HashMap<>();
