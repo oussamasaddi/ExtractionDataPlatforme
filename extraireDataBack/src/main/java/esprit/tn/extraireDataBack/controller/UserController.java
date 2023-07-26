@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -31,6 +33,10 @@ public class UserController {
 	@GetMapping({"/getUserByuserName/{userName}"})
 	public User getUserByuserName(@PathVariable String userName) {
 		return userService.getUserByuserName(userName);
+	}
+	@GetMapping({"/allUser"})
+	public List<User> getAllUser() {
+		return userService.getAllUser();
 	}
 	
 	@GetMapping({"/forAdmin"})

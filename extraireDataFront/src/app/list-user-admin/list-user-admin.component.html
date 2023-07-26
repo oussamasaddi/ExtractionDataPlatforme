@@ -1,0 +1,69 @@
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="color: white;">
+                First Name
+            </th>
+            <th style="color: white;">
+                Last Name 
+            </th>
+            <th style="color: white;">
+                Email Id
+            </th>
+            <th style="color: white;">
+                User Name
+            </th>
+            <th style="color: white;">
+                State
+            </th>
+            <th style="color: white;">
+                CIN
+            </th >
+            <th style="color: white;">
+                Phone Number
+            </th>
+            <th style="color: white;">
+                Role
+            </th>
+            <th style="color: white;">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let user of users">
+            <td style="color: white;">
+                {{user.userFirstName}}
+            </td>
+            <td style="color: white;">
+                {{user.userLastName}}
+            </td>
+            <td style="color: white;">
+                {{user.userEmail}}
+            </td>
+            <td style="color: white;">
+                {{user.userName}}
+            </td >
+            <td style="color: white;">
+                {{user.userEtats}}
+            </td>
+            <td style="color: white;">
+                {{user.userCin}}
+            </td>
+            <td style="color: white;">
+                {{user.userPhoneNumber}}
+            </td>
+            <td style="color: white;">
+                {{user.role[0].roleName}}
+            </td>
+            <td style="color: white;">
+                <button  class="btn btn-info"> Update</button>
+                <button (click)="deleteUser(user.userName)" class="btn btn-danger" style="margin-left: 10px;"> Delete</button>
+                <button  class="btn btn-info" style="margin-left: 10px ;background-color: blueviolet;"> Details</button>
+
+            </td>
+        </tr>
+    </tbody>
+
+</table>

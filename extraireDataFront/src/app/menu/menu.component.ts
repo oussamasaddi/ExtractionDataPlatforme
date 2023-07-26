@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserAuthService } from '../service/user-auth.service';
 
 @Component({
@@ -8,10 +9,15 @@ import { UserAuthService } from '../service/user-auth.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private userAuthService : UserAuthService) { }
+  constructor( private router:Router , 
+    private userAuthService : UserAuthService
+    ) { }
 
   ngOnInit(): void {
-    console.log(this.userAuthService.getCurrentUser());
+    console.log(this.userAuthService.getCurrentUser())
+  }
+   GoLogin(){
+    this.router.navigate(['login']);
   }
 
 }

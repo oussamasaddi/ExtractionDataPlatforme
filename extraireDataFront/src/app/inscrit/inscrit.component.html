@@ -1,0 +1,59 @@
+
+
+
+<div class="form_wrapper" style="background-color: gold;" >
+    <div class="form_container" >
+      <div class="title_container">
+        <h2>Responsive Registration Form</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form (ngSubmit)="onSubmit()">
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input  [(ngModel)] ="client.userEmail" type="email" name="email" placeholder="Email" required />
+            </div>
+            
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+              <input  [(ngModel)] ="client.userName" type="text" name="userName" placeholder="User Name" required />
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input [(ngModel)] ="client.userPassword" type="password" name="password" placeholder="Password" required />
+            </div>
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input [(ngModel)] ="client.userFirstName" type="text" name="name" placeholder="First Name" />
+                </div>
+              </div>
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input [(ngModel)] ="client.userLastName" type="text" name="name" placeholder="Last Name" required />
+                </div>
+              </div>
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-long-arrow-left"></i></span>
+              <input  [(ngModel)] ="client.userCin" type="text" name="CIN" placeholder="CIN" required />
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-phone"></i></span>
+              <input  [(ngModel)] ="client.userPhoneNumber" type="text" name="phoneNumber" placeholder="numero telephone" required />
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-map"></i></span>
+              <input  [(ngModel)] ="client.userEtats" type="text" name="etas" placeholder="Etas" required />
+            </div>
+            
+              <div class="input_field checkbox_option">
+                  <input type="checkbox" id="cb1">
+                  <label for="cb1">I agree with terms and conditions</label>
+              </div>
+              
+            <input class="button" type="submit" value="Register" />
+           
+           
+
+          </form>
+          <input class="button" (click)="goHome()" type="submit" value="back" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="credit">Developed by <a href="http://www.designtheway.com" target="_blank">Design the way</a></p>

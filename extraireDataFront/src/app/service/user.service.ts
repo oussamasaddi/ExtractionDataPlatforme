@@ -52,7 +52,7 @@ export class UserService {
   //Affiche TOUt USER 
   getAllUser(): Observable<User[]>{
     
-    return this.httpClient.get<User[]>(`${this.PATH_OF_API}/allUser`);
+    return this.httpClient.get<User[]>(`${this.PATH_OF_API}/allUser` , {headers :this.headers});
   }
 
   //Delete user

@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
        
         this.userAuthService.setToken(response.jwtToken);
         this.userService.getUserByuserName(loginForm.value.userName).subscribe((us : any) => {
-           this.userAuthService.setRoles(us.role);
+          this.userAuthService.setRoles(us.role);
           //test set and get current user
         this.userAuthService.setCurrentUser(us);
         

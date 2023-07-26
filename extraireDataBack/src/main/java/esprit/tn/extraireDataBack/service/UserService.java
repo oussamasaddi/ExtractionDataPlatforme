@@ -1,6 +1,7 @@
 package esprit.tn.extraireDataBack.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import esprit.tn.extraireDataBack.entity.Role;
@@ -88,4 +89,9 @@ public class UserService {
 	}
 
 	public User getUserByuserName(String userName){ return  userRepository.findById(userName).get();}
+
+	public List<User> getAllUser() {
+		return  (List<User> )userRepository.findAll();
+	}
+
 }

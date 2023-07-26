@@ -1,0 +1,11 @@
+.it{
+    width:170px;
+    height: 50px;
+    margin-left:30px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    color: #7D7769;
+    font-weight: bold;
+}

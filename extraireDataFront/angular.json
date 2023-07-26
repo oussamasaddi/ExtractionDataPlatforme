@@ -91,8 +91,18 @@
             ],
             "styles": [
               "src/styles.css"
+              
             ],
-            "scripts": []
+            "scripts": [
+              "./src/app/dhashboard-admin/Back/vendor/jquery/jquery.min.js",
+              "./src/app/dhashboard-admin/Back/vendor/popper.js/umd/popper.min.js",
+              "./src/app/dhashboard-admin/Back/vendor/bootstrap/js/bootstrap.min.js",
+              "./src/app/dhashboard-admin/Back/vendor/jquery.cookie/jquery.cookie.js",
+              "./src/app/dhashboard-admin/Back/vendor/chart.js/Chart.min.js",
+              "./src/app/dhashboard-admin/Back/vendor/jquery-validation/jquery.validate.min.js",
+              "./src/app/dhashboard-admin/Back/js/charts-home.js",
+              "./src/app/dhashboard-admin/Back/js/front.js"
+            ]
           }
         }
       }
